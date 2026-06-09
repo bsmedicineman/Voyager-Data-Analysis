@@ -1,0 +1,9 @@
+numpy>=1.24
+scipy>=1.10
+pandas>=2.0
+matplotlib>=3.7
+cdasws>=1.7        # CDAWeb data access
+spiceypy>=6.0      # spacecraft positions
+xarray>=2023.1     # cdasws XARRAY representation + netCDF caching
+netCDF4>=1.6       # netCDF backend for chunk caching
+pyarrow>=12        # optional: parquet output
