@@ -1,0 +1,11 @@
+Voyager 1 data summary
+============================================================
+Rows      : 1000000
+Columns   : ['timestamp', 'mag_amplitude', 'pws_amplitude', 'distance_au', 'amplitude', 'source_file', 'amplitude_filtered', 'frequency_hz', 'days_since_launch', 'distance_km', 'year', 'foam_oscillation_score', 'frequency_band']
+Time range: 1977-09-05 00:00:00 -- 1977-09-16 13:46:39
+Distance  : 1.00 -- 4.42 AU
+
+
+results:
+
+program voyager_foam_mapper_020hz_version2.py did not extract information
