@@ -1,0 +1,13 @@
+data_kind,context,kind,events,max_amplitude,total_duration_s,f_min_hz,f_max_hz,d_min_au,d_max_au
+mag_B_nT,solar-wind cruise,burst,223,8016.8281,1024423.901,0.0,0.0104,,
+mag_B_nT,solar-wind cruise,dc_shift,17217,8016.0683,16168246.599,0.0,0.0,,
+mag_B_nT,solar-wind cruise,oscillation,36,1417.0496,519455.609,0.0,0.0099,,
+pws_channels,Heliopause crossing,channel_burst,219371,15.0,1346556.1398,10.0,inf,118.7489,121.9021
+pws_channels,Jupiter encounter,channel_burst,291408582,15.0,56406096.927,10.0,inf,4.971,5.549
+pws_channels,Neptune encounter,channel_burst,987508,0.1414,5547509.355,10.0,56200.0,29.9227,30.4174
+pws_channels,Saturn encounter,channel_burst,1753439,15.0,10625320.6188,10.0,inf,9.1319,9.686
+pws_channels,Termination shock,channel_burst,184698,15.0,4099911.3388,10.0,inf,83.3929,94.3278
+pws_channels,Uranus encounter,channel_burst,958361,0.1414,5667015.45,10.0,56200.0,18.8636,19.3468
+pws_channels,heliosheath cruise,channel_burst,10076616,15.0,142439468.8204,10.0,inf,83.9322,121.2963
+pws_channels,interstellar (VLISM),channel_burst,18714314,15.0,89977109.5867,10.0,inf,119.2798,151.4195
+pws_channels,solar-wind cruise,channel_burst,249287807,15.0,780732079.0123,10.0,inf,1.0082,93.7226
