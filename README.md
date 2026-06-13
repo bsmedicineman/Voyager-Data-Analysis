@@ -95,19 +95,27 @@ The Voyager‑Data repository contains (currently 06.13.2026) three self‑conta
             
           
           voyager-data/
-│
+
 ├─ Voyager data download program
+
 │
 │
+
 ├─  # Experiment 1 – “classic” mapper    
+
 ├─  # Experiment 2 – true single‑pass streaming
+
 ├─  # Experiment 3 – chunked loading + diagnostics  ***NOT CURRENTLY UPLOADED TO GITHUB
+
 │
 │
 │
 │
+
 ├─ data/                                      # Raw Voyager EM/MAG files (CSV, TAB, NC, …)  ***NOT UPLOADED TO GITHUB
+
 │
+
 └─ docs/                                      # Optional notebooks / plots   ***NOT CURRENTLY UPLOADED TO GITHUB, IN PROGRESS
       
 1️⃣ Experiment 1 – Classic 0‑20 Hz Foam‑Oscillation Mapper
