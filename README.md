@@ -1,96 +1,84 @@
 # Voyager Data Analysis
 
-Analysis of electromagnetic data from NASA's Voyager 1 and Voyager 2 spacecraft.
+Analysis of electromagnetic (EM) data from NASA's Voyager 1 and Voyager 2 spacecraft.
 
-This repository contains tools and experiments for processing and analyzing plasma wave (PWS) and magnetometer (MAG) data from the Voyager missions, with the goal of identifying transient events and potential signatures related to spacetime foam research.
+This repository contains tools and experiments for processing plasma wave (PWS) and magnetometer (MAG) data from the Voyager missions, focused on detecting transients and potential spacetime foam signatures in the heliosphere.
 
 ## Repository Structure
+
+```
 Voyager-Data-Analysis/
-├── Archive/                  # Archived / deprecated files and early experiments
-├── Experiment 1/             # Early foam-oscillation mapping work
+├── Archive/                  # Archived and deprecated files
+├── Experiment 1/             # Early foam-oscillation mapping experiments
 ├── Experiment 2/             # Streaming / line-by-line analysis experiments
-├── Experiment 3/             # Newer / updated experiment work
-├── main.py               # CLI orchestration
-├── anomaly.py                # Anomaly and transient detection
+├── Experiment 3/             # Newer and actively updated experiment work
+├── __main__.py               # CLI entrypoint and orchestration
+├── anomaly.py                # Spectral event and DC shift detection
 ├── catalog.py                # CDAWeb dataset discovery
-├── config.py                 # Configuration and instrument bands
-├── download.py               # Chunked data downloading
-├── ingest.py                 # Data ingestion and normalization
-├── mapping.py                # Visualization and mapping
-├── position.py               # SPICE heliocentric positioning
-├── spectra.py                # Spectral analysis tools
+├── config.py                 # Instrument configuration and frequency bands
+├── download.py               # Chunked, resumable data downloads
+├── ingest.py                 # Data normalization and ingestion
+├── mapping.py                # Results merging and visualization
+├── position.py               # SPICE heliocentric distance calculations
+├── spectra.py                # Spectrogram and spectral analysis
 ├── requirements.txt
 ├── LICENSE
 └── README.md
-text## Core Pipeline
+```
 
-The root-level modules form a modular pipeline for working with Voyager EM data:
+## Core Pipeline
 
-- **`config.py`** — Defines frequency bands and data paths for PWS and MAG instruments
-- **`catalog.py`** — Resolves current dataset IDs from CDAWeb
-- **`download.py`** — Handles large, resumable downloads from CDAWeb
-- **`ingest.py`** — Converts raw data into clean time series
-- **`spectra.py`** — Spectrogram generation and spectral processing
-- **`anomaly.py`** — Detects spectral events and DC-level shifts
-- **`position.py`** — Computes spacecraft distance from the Sun using SPICE
-- **`mapping.py`** — Combines results and generates visualizations
-- **`__main__.py`** — Command-line interface
+The root-level modules provide a modular pipeline for Voyager EM data analysis:
 
-### Basic Usage
+| Module        | Purpose                                           |
+|---------------|---------------------------------------------------|
+| `config.py`   | Defines instrument bands and data paths           |
+| `catalog.py`  | Resolves current CDAWeb dataset IDs               |
+| `download.py` | Downloads large CDF files in resumable chunks     |
+| `ingest.py`   | Converts cached data into clean time series       |
+| `spectra.py`  | Generates spectrograms and computes band power    |
+| `anomaly.py`  | Detects spectral anomalies and DC baseline shifts |
+| `position.py` | Calculates spacecraft heliocentric distance       |
+| `mapping.py`  | Merges data and generates visualizations          |
+| `__main__.py` | Command-line interface and workflow orchestration |
+
+### Quick Start
 
 ```bash
 pip install -r requirements.txt
 
-# Test the pipeline without downloading data
+# Run offline self-test (no internet required)
 python -m voyager_em selftest
 
-# Full run (download + analyze)
+# Full pipeline (download + analyze)
 python -m voyager_em all
-Experiment Folders
-This repository contains multiple iterations of analysis:
+```
 
+## Experiment Folders
 
+| Folder        | Description                                      | Status     |
+|---------------|--------------------------------------------------|------------|
+| `Experiment 1/` | Early “classic” mapper with foam-oscillation scoring | Legacy     |
+| `Experiment 2/` | Streaming / memory-efficient analysis approach     | Legacy     |
+| `Experiment 3/` | Newer and actively developed experiment work       | Active     |
+| `Archive/`      | Deprecated files and early drafts                  | Archived   |
 
+## Important Physics Notes
 
+- **MAG** data is primarily sensitive to near-DC fields and step changes. Many heliospheric features appear as baseline shifts or variance increases.
+- **PWS** waveform receiver has a hard ~40 Hz analog high-pass cutoff. There is no recoverable data below this frequency.
+- PWS amplitudes are relative (due to automatic gain control) and should be used for detection and localization rather than absolute field strength.
+- Electric (PWS) and magnetic (MAG) data are analyzed as separate layers.
 
+## Current Status
 
+**Work in progress** — June 2026
 
+The repository is being actively reorganized. The modern pipeline at the root is the primary development focus. Legacy experiment code is preserved in the `Experiment X/` folders for reference.
 
+## License
 
+This project is released under the **Knight Industries Proprietary Research License 2026**.
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-FolderDescriptionStatusExperiment 1/Early "classic" mapper with foam-oscillation scoringLegacyExperiment 2/Streaming / memory-efficient analysis approachLegacyExperiment 3/Newer / updated experiment workActiveArchive/Deprecated files and early draftsArchived
-The Experiment 3/ folder is the most recent area of active work.
-Important Instrument Notes
-
-MAG primarily captures near-DC and low-frequency variations. Many heliospheric structures appear as step changes or variance increases rather than narrowband tones.
-PWS waveform data has a hard analog high-pass cutoff near 40 Hz. There is no usable data below this frequency in the waveform receiver products.
-PWS amplitudes are relative due to automatic gain control and are best used for detection rather than absolute calibration.
-
-Current Status
-Work in progress — June 2026
-The repository is being actively reorganized. The modern pipeline at the root level is the main focus going forward. Legacy experiment code remains available in the Experiment X/ folders for reference.
-Results and methods from this work support broader research into resonant spacetime phenomena.
-
-License
-Released under the Knight Industries Proprietary Research License 2026.
-See the LICENSE file for terms. Commercial use or redistribution requires prior written permission from Knight Industries.
+See the `LICENSE` file for full terms. Commercial use requires prior written permission.
+```
